@@ -1,0 +1,7 @@
+fastapi==0.115.11
+kafka-python==2.0.5
+langchain==0.3.19
+langchain_openai==0.3.7
+langchain_core==0.3.40
+newspaper4k==0.9.3.1
+lxml_html_clean==0.4.1

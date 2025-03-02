@@ -1,0 +1,24 @@
+version: '3.5'
+
+services:
+  ai_metadata_ingest:
+    container_name: ai_metadata_ingest
+    image: ai_metadata_ingest:v0.1
+    network_mode: host
+    restart: always
+    environment:
+      - KAFKA_SERVER=${KAFKA_SERVER}
+      - CONSUME_TOPIC_AUDIO=${CONSUME_TOPIC_AUDIO}
+      - CONSUME_TOPIC_VIDEO=${CONSUME_TOPIC_VIDEO}
+      - CONSUME_TOPIC_DOCUMENT=${CONSUME_TOPIC_DOCUMENT}
+      - PRODUCE_TOPIC_AUDIO=${PRODUCE_TOPIC_AUDIO}
+      - PRODUCE_TOPIC_VIDEO=${PRODUCE_TOPIC_VIDEO}
+      - PRODUCE_TOPIC_DOCUMENT=${PRODUCE_TOPIC_DOCUMENT}
+      - LLM_HOST=${LLM_HOST}
+      - LLM_MODEL=${LLM_MODEL}
+      - STT_URL=${STT_URL}
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
